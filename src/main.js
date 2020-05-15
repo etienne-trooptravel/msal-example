@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 Vue.use(msal, {
     auth: {
       clientId: '3f9b0475-0293-462a-9273-48eafbdc2d44',
-      // redirectUri: '',
+      redirectUri: 'https://vue-msal-example.firebaseapp.com/',
       requireAuthOnInitialize: true
     }
 });
