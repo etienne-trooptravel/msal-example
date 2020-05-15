@@ -18,6 +18,11 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
+  // Needs 404 catch-all route because history mode is enabled
+  // {
+  //   path: '*',
+  //   component: NotFoundComponent
+  // }
 ]
 
 const router = new VueRouter({
