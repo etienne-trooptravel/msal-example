@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "vue-msal-example"
+  },
+  "targets": {
+    "vue-msal-example": {
+      "hosting": {
+        "vue-msal-example": [
+          "vue-msal-example"
+        ]
+      }
+    }
   }
 }
