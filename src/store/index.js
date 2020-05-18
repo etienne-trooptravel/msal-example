@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { db } from '../firestore.js'
 
 Vue.use(Vuex)
 
@@ -23,6 +24,18 @@ export default new Vuex.Store({
   },
 
   actions: {
+
+    logAction () {
+      console.log(`LOG STATE`, this.state);
+      if (this.state.user) {
+        db.collection("logs").doc(this.state.user.accountIdentifier).set(
+          {
+            user: this.state.user,
+            route: this.state.route
+          },{ merge: true });
+      }
+    }
+
   },
 
   modules: {

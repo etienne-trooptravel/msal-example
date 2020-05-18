@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import store from '../store'
+import { msalMixin } from 'vue-msal';
 
 Vue.use(VueRouter)
 
@@ -34,7 +35,10 @@ const router = new VueRouter({
 
 // Global route guard
 router.beforeEach((to, from, next) => {
-  store.commit('setRoute', to.name),
+  store.commit('setRoute', to.name)
+  if (this.msal.isAuthenticated) {
+    store.dispatch('logAction')
+  }
   next()
 });
 
